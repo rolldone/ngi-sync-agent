@@ -9,37 +9,14 @@ module.exports = {
   externals: [nodeExternals({
     allowlist: ['serialize-error', /^lodash/, 'http-browserify']
   })],
-  // Source maps support ('inline-source-map' also works)
   devtool: 'eval-source-map',
-  // devtool: 'source-map',
-  // devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.ts$/,
         exclude: [/node_modules/],
         loader: 'ts-loader'
-      },
-      // {
-      //   test: /\.m?js$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ["@babel/plugin-transform-modules-commonjs"]
-      //     }
-      //   }
-      // },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /(node_modules|bower_components)/,
-      //   use: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: ["@babel/plugin-transform-modules-commonjs"]
-      //     }
-      //   }
-      // }
+      }
     ],
   },
   resolve: {
@@ -49,15 +26,10 @@ module.exports = {
     },
   },
   output: {
-    // chunkFilename: '[name].js',
-    filename: 'App.js',
-    // path: __dirname
+    filename: 'App.js'
   },
   plugins: [
-    new webpack.DefinePlugin({
-    }),
-    new webpack.ProvidePlugin({
-
-    })
+    new webpack.DefinePlugin({}),
+    new webpack.ProvidePlugin({})
   ]
 };
